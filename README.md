@@ -21,22 +21,20 @@ Choose **Practice Mode** for explanations after each section or **Test Mode** to
 
 The quiz follows the traditional classroom *five-kingdom* model. It corrects a few common misconceptions, such as reptiles being cold-blooded and arthropods not all having eight legs.
 
-## Publishing this repo on GitHub Pages
+## Publishing on GitHub Pages
 
-This repository was **private** when the quiz was uploaded. GitHub Pages supports public repositories on GitHub Free; hosting from private repositories generally requires a paid eligible GitHub plan.
+The deploy workflow at `.github/workflows/pages.yml` publishes the quiz automatically after GitHub Pages is enabled. Its initial run failed with "Get Pages site failed: Not Found" because Pages is **not yet enabled**.
 
-If publishing a public site is acceptable:
+1. Visit **Settings → Pages** for this repository.
+2. Under **Build and deployment**, set **Source → GitHub Actions** (not "Deploy from a branch").
+3. If GitHub cannot enable Pages for this private repository under the owner's plan, GitHub Pages requires the repository to be public on GitHub Free. **Do not change its visibility without the owner's approval.** Paid plans may allow Pages from a private repository.
+4. From the **Actions** tab, open **Deploy Biodiversity Explorer to GitHub Pages** and rerun the workflow (or commit a small change to `index.html` or workflow).
+5. Confirm that the job is green and the **Pages** settings page provides a live **Visit site** link.
 
-1. If your GitHub plan requires it, change the repository visibility to **Public** in **Settings → General → Danger Zone → Change repository visibility**. **Check the repository contains no private materials before doing this.**
-2. Open **Settings → Pages**.
-3. Under **Build and deployment**, select **Deploy from a branch**.
-4. Choose branch **main** and folder **/(root)**, then **Save**.
-5. Wait for GitHub to finish deploying and open the **Visit site** link on the Pages settings screen.
-
-Expected default address (only after Pages has been activated):
+Expected default live address, **only when the deployment succeeds**:
 `https://fslb10.github.io/Olivia-Julia-school-work/`
 
-These settings must be selected in GitHub; committing `index.html` alone does not activate Pages.
+Only `index.html` is uploaded as the public website. The source repository remains private unless deliberately changed.
 
 ## Editing
 
