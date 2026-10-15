@@ -1,10 +1,11 @@
-name: Deploy Biodiversity Explorer to GitHub Pages
+name: Deploy school learning websites to GitHub Pages
 
 on:
   push:
     branches: [main]
     paths:
       - "index.html"
+      - "jellyfish/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -24,7 +25,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Check out quiz
+      - name: Check out learning websites
         uses: actions/checkout@v4
       - name: Set up GitHub Pages
         uses: actions/configure-pages@v5
@@ -32,6 +33,7 @@ jobs:
         run: |
           mkdir -p _site
           cp index.html _site/index.html
+          cp -R jellyfish _site/jellyfish
           touch _site/.nojekyll
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
